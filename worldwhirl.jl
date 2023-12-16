@@ -2,19 +2,24 @@ function reverseWithPunctuation(sentence::String)
 
     # ====== Write your awesome code under here ======
 
-    print("VividCloud Word Whirl Code Lab\n")
-
     split_sentence = split(sentence, " ")
     if length(split_sentence) == 1
         println(sentence)
         return ""
     end
 
+    last_char = split_sentence[end][end]
+    if !isletter(last_char)
+        split_sentence[end] = split_sentence[end][1:(end-1)]
+    end
     reverse_sentence = reverse(split_sentence)
     first_word = first(reverse_sentence)
     first_word = uppercase(first(first_word)) * first_word[2:end]
     last_word = last(reverse_sentence)
     last_word = lowercase(first(last_word)) * last_word[2:end]
+    if !isletter(last_char)
+        last_word = last_word * last_char
+    end
     reverse_sentence[1] = first_word
     reverse_sentence[end] = last_word
     
@@ -35,7 +40,7 @@ end
 
 begin
 
-    sentence = "My other julia is a python"
+    sentence = "My other julia, is a python!"
 
     # Time the execution of the reverseWithPunctuation function
 

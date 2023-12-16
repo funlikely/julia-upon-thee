@@ -2,6 +2,8 @@ function reverseWithPunctuation(sentence::String)
 
     # ====== Write your awesome code under here ======
 
+    # sentence = "My other julia, is a python!"
+
     split_sentence = split(sentence, " ")
     if length(split_sentence) == 1
         println(sentence)
@@ -25,8 +27,6 @@ function reverseWithPunctuation(sentence::String)
     
     joined_reverse_sentence = join(reverse_sentence, " ")
 
-    # println(split_sentence)
-    # println(reverse_sentence)
     println(joined_reverse_sentence)
  
     # ====== End your awesome code above here ======
